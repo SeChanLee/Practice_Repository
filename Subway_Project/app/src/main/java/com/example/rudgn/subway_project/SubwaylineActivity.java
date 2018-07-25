@@ -11,9 +11,10 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import java.util.Stack;
+
 public class SubwaylineActivity extends AppCompatActivity {
     FrameLayout container;
-    LinearLayout rail_lay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,6 @@ public class SubwaylineActivity extends AppCompatActivity {
 
         container = (FrameLayout) findViewById(R.id.container);
 
-        LinearLayout rail_lay=(LinearLayout)findViewById(R.id.rail_lay);
         Button reset = (Button) findViewById(R.id.reset);
         Button s1 = (Button) findViewById(R.id.s1);
         Button s2 = (Button) findViewById(R.id.s2);
@@ -37,6 +37,8 @@ public class SubwaylineActivity extends AppCompatActivity {
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                inflater.inflate(R.layout.clear, container, true);
             }
         });
 
